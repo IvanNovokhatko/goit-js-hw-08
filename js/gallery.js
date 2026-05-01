@@ -75,7 +75,7 @@ let galleryContent = "";
 const addContent = images.forEach((image) => {
     const { preview, original, description } = image;
 
-    const galleryTemplate = `<li class="gallery-item"> <a class="gallery-link" href="large-image.jpg"> <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" /> </a> </li>`;
+    const galleryTemplate = `<li class="gallery-item"> <a class="gallery-link" href="${original}"> <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" /> </a> </li>`;
     
     galleryContent += galleryTemplate + " ";
 });
@@ -87,7 +87,7 @@ gallery.insertAdjacentHTML("beforeend", galleryContent);
 const onGalleryClick = (event) => {
     event.preventDefault();
 
-     if (event.target.classList.contains('gallery') === true) {
+     if (!event.target.classList.contains('gallery-image') === true) {
     return;
     };
     
